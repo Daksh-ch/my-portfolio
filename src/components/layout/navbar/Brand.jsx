@@ -1,7 +1,6 @@
 import React from 'react'
-import heroImg from '../../assets/hero.jpg'
 
-const Brand = () => {
+const Brand = ({heroImg}) => {
   return (
     <div className="navbar-left">
       <img src={heroImg} alt="Profile" className="navbar-avatar" />
