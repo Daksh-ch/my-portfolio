@@ -5,8 +5,8 @@ const Navbar = ({darkMode, setDarkMode, themeName}) => {
  
   return (
     <nav style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem'}}>
-        <h2>Daksh Chaudhary</h2>
-        <button onClick={() => setDarkMode(prev => !prev)}>{themeName }</button>
+        <h2>Daksh Chaudhary</h2> 
+        <button onClick={() => setDarkMode(prev => !prev)}>{themeName}</button>
         <button onClick={() => setMenuOpen(prev => !prev)}>Menu</button>
 
         {menuOpen && (

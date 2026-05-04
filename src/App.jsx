@@ -7,7 +7,7 @@ import { useState } from 'react'
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [showAbout, setShowAbout]  = useState(false);
-  // const [themeName, setThemeName] = useState("white");
+  const themeName = darkMode ? "Light" : "Dark";
 
 
   return (
@@ -17,7 +17,7 @@ function App() {
       minHeight: "100vh"
     }}>
 
-        <Navbar darkMode = {darkMode} setDarkMode = {setDarkMode}/>
+        <Navbar darkMode = {darkMode} setDarkMode = {setDarkMode} themeName={themeName}/>
         <Hero name = "Daksh" role = "Web Developer" darkMode = {darkMode} />
         <button onClick={() => setShowAbout(prev => !prev)}>Toggle About</button>
         {showAbout && <About  darkMode = {darkMode} />}

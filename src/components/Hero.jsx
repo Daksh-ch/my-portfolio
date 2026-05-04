@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Hero = ({name, role}) => {
+const Hero = ({name, role, darkMode}) => {
   return (
     <section>
         <h1>Hello {name}</h1>
