@@ -5,9 +5,7 @@ import Navlinks from './navbar/Navlinks'
 import CTAButton from './ui/CTAButton'
 import ThemeToggle from './ui/ThemeToggle'
 
-const Navbar = ({darkMode, setDarkMode, themeName}) => {
-  // const [menuOpen, setMenuOpen] = useState(false);
- 
+const Navbar = ({darkMode, setDarkMode, themeName}) => { 
   return (
      <nav className="navbar">
       <Brand />
@@ -19,6 +17,7 @@ const Navbar = ({darkMode, setDarkMode, themeName}) => {
         setDarkMode={setDarkMode} 
         themeName={themeName} />
       </div>
+      
       </nav>
   )
 }
