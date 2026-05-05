@@ -3,7 +3,7 @@ import Card from '../ui/Cards';
 import './About.css';
 const About = ({ darkMode }) => {
     return (
-        <section className="about-section">
+        <section id = "about" className="about-section">
             <div className="about-header">
                 <h2 className="about-title">About Me</h2>
                 <p className="about-subtitle">
@@ -24,7 +24,9 @@ const About = ({ darkMode }) => {
                 />
                 <Card 
                     title="My Goals"
-                    description="My primary goal is to build real-world applications that bring tangible value to users while maintaining a clean, scalable architecture. I am always eager to learn new tools and eventually lead high-impact engineering projects."    
+                    description="My primary goal is to build real-world applications that bring tangible value to users while maintaining a clean, scalable architecture. I am always eager to learn new tools and eventually lead high-impact engineering projects." 
+                    expandedContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor sem ac felis pretium fermentum sed non elit. Nulla ac turpis eu purus finibus fringilla nec quis ipsum. Etiam magna."
+
                 />
             </div>
         </section>

@@ -20,7 +20,7 @@ function App() {
     <div style={{
       background : darkMode ? "black" : "white",
       color : darkMode ? "white" : "black",
-      minHeight: "70vh",
+      minHeight: "100vh",
       fontFamily: "Helvetica",
       gap: "2rem"
     }}>
@@ -30,6 +30,7 @@ function App() {
         <div style = {{display: "flex", justifyContent: "center"}}>
           <CTAButton onClick={() => setShowAbout(prev => !prev)} text = "Toggle About"/> 
         </div>
+
         {showAbout && <About  darkMode = {darkMode} />}
     </div>
   )
