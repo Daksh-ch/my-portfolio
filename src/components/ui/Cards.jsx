@@ -1,8 +1,8 @@
 import React from 'react';
 import './Cards.css';
-import { useState} from 'react';
+import {useState} from 'react';
 
-const Card = ({ title, description, buttonText, expandedContent }) => {
+const Card = ({ title, description, buttonText, expandedContent, imageUrl }) => {
 
     const[isExpanded, setIsExpanded] = useState(false);
 
@@ -11,6 +11,10 @@ const Card = ({ title, description, buttonText, expandedContent }) => {
     }
     return (
         <div className="modern-card">
+            {imageUrl && (
+                <img src={imageUrl} alt={title} className= "card-image"/>
+            )}
+
             <h3 className="card-title">{title}</h3>
             <div className="card-description">{description}</div>
 

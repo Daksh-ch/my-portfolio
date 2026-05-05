@@ -5,6 +5,7 @@ import About from './components/sections/About'
 import { useState } from 'react'
 import CTAButton from './components/ui/CTAButton'
 import Lenis from 'lenis'
+import Projects from './components/sections/Projects'
 
 function App() {
   const lenis = new Lenis({
@@ -20,6 +21,7 @@ function App() {
     <div style={{
       background : darkMode ? "black" : "white",
       color : darkMode ? "white" : "black",
+      borderColor: darkMode ? "rgba(128,128,128,0.2)" : "rgba(128,128,128,0.8)",
       minHeight: "100vh",
       fontFamily: "Helvetica",
       gap: "2rem"
@@ -32,6 +34,8 @@ function App() {
         </div>
 
         {showAbout && <About  darkMode = {darkMode} />}
+
+        <Projects />
     </div>
   )
 }
