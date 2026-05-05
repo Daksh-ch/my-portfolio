@@ -1,6 +1,6 @@
 import React from 'react';
 import './Cards.css';
-import { useState } from 'react';
+import { useState} from 'react';
 
 const Card = ({ title, description, buttonText, expandedContent }) => {
 
@@ -12,7 +12,7 @@ const Card = ({ title, description, buttonText, expandedContent }) => {
     return (
         <div className="modern-card">
             <h3 className="card-title">{title}</h3>
-            <p className="card-description">{description}</p>
+            <div className="card-description">{description}</div>
 
             {isExpanded && expandedContent && (
                 <p className="card-expanded">{expandedContent}</p>

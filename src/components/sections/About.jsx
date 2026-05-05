@@ -1,6 +1,12 @@
 import React from 'react';
 import Card from '../ui/Cards';
 import './About.css';
+
+const skills = [
+    "React.js", "JavaScript", "Node.js", "Express", "MongoDB", "HTML5", "CSS3", "Git", "RESTful APIs"
+];
+
+
 const About = ({ darkMode }) => {
     return (
         <section id = "about" className="about-section">
@@ -18,9 +24,17 @@ const About = ({ darkMode }) => {
                     buttonText="Download Resume"
                     expandedContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor sem ac felis pretium fermentum sed non elit. Nulla ac turpis eu purus finibus fringilla nec quis ipsum. Etiam magna."
                 />
-                <Card 
+                <Card
                     title="My Skills"
-                    description="I specialize in the modern JavaScript ecosystem. On the frontend, I build fast, responsive interfaces using React, modern CSS, and Vite. On the backend, I leverage Node.js and Express to create fully functional RESTful APIs."    
+                    description= {
+                        <div className = "skill-items" style = {{display: "flex", flexWrap: "wrap", gap: "0.5rem"}}>
+                            {skills.map((skill, index) => (
+                                <span key = {index}>
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+                    }
                 />
                 <Card 
                     title="My Goals"

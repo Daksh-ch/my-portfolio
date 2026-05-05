@@ -30,3 +30,12 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
+
+.skill-items span{
+    padding: 4px 8px;
+    border: 1px solid;
+    border-color: currentColor;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    color: inherit;
+}
