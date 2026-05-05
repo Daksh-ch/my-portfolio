@@ -6,13 +6,14 @@ import { useState } from 'react'
 import CTAButton from './components/ui/CTAButton'
 import Lenis from 'lenis'
 import Projects from './components/sections/Projects'
+import Contact from './components/sections/Contact'
 
 function App() {
   const lenis = new Lenis({
     autoRaf: true,
   });
 
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [showAbout, setShowAbout]  = useState(false);
   const themeName = darkMode ? "Light" : "Dark";
 
@@ -36,6 +37,8 @@ function App() {
         {showAbout && <About  darkMode = {darkMode} />}
 
         <Projects />
+        <Contact />
+
     </div>
   )
 }

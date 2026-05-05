@@ -12,7 +12,9 @@ const Navbar = ({darkMode, setDarkMode, themeName}) => {
       <Navlinks />
 
       <div className="navbar-actions">
-        <CTAButton text = "Message Daksh"/>
+        <CTAButton text = "Message Daksh" onClick={() => {
+          document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+        }}/>
         <ThemeToggle darkMode={darkMode} 
         setDarkMode={setDarkMode} 
         themeName={themeName} />
