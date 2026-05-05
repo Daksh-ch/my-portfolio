@@ -16,6 +16,7 @@ const About = ({ darkMode }) => {
                     title="Who I Am"
                     description="I am a passionate Full Stack Web Developer. My journey started with a deep curiosity for how the web works, which evolved into building stunning user interfaces and designing scalable, robust backends. I thrive on solving complex problems."
                     buttonText="Download Resume"
+                    expandedContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor sem ac felis pretium fermentum sed non elit. Nulla ac turpis eu purus finibus fringilla nec quis ipsum. Etiam magna."
                 />
                 <Card 
                     title="My Skills"
