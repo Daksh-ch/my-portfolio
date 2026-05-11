@@ -32,7 +32,7 @@
 .card-btn {
     background-color: transparent;
     color: inherit;
-    border: 1px solid currentColor;
+    border: 1px solid rgba(128, 128, 128, 0.5);
     border-radius: 999px;
     padding: 0.6rem 1.25rem;
     font-size: 0.95rem;
@@ -67,4 +67,28 @@
 .projects-empty {
   text-align: center;
   opacity: 0.7;
+}
+
+.card-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-head-info{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+}
+
+.card-stars, .card-language{
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    padding: .3rem .5rem;
+    border-radius: 999px;
+
 }

@@ -20,7 +20,7 @@ const Projects = () => {
                 }
 
                 const data = await response.json();
-                const filtered = data.filter(repo => !repo.fork).slice(0,6);
+                const filtered = data.filter(repo => !repo.fork).slice(0,4);
 
                 setProjects(filtered);
 
@@ -56,6 +56,8 @@ const Projects = () => {
                 description={project.description || "No description provided"}
                 buttonText="View Repo"
                 buttonLink={project.html_url}
+                starCount={project.stargazers_count}
+                imageUrl={`/projects/${project.name}.webp`}
                 />
             ))}
             </div>

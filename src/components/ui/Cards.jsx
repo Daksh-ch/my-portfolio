@@ -1,8 +1,9 @@
 import React from 'react';
 import './Cards.css';
 import {useState} from 'react';
+import { Star } from 'lucide-react';
 
-const Card = ({ title, description, buttonText, buttonLink ,expandedContent, imageUrl }) => {
+const Card = ({ title, description, buttonText, buttonLink ,expandedContent, imageUrl, starCount  }) => {
 
     const[isExpanded, setIsExpanded] = useState(false);
 
@@ -15,8 +16,18 @@ const Card = ({ title, description, buttonText, buttonLink ,expandedContent, ima
                 <img src={imageUrl} alt={title} className= "card-image"/>
             )}
 
-            <h3 className="card-title">{title}</h3>
+          
+            <div className='card-head'>
+                <h3 className="card-title">{title}</h3>
+                <div className='card-head-info'>
+                    {starCount !== undefined && (
+                        <p className="card-stars"><Star size={16} fill="#ffea00" strokeWidth={0} /> {starCount}</p>
+                    )}
+                </div>
+            </div>
+        
             <div className="card-description">{description}</div>
+            
 
             {isExpanded && expandedContent && (
                 <p className="card-expanded">{expandedContent}</p>
