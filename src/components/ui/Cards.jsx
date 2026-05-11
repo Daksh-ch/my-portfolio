@@ -2,7 +2,7 @@ import React from 'react';
 import './Cards.css';
 import {useState} from 'react';
 
-const Card = ({ title, description, buttonText, expandedContent, imageUrl }) => {
+const Card = ({ title, description, buttonText, buttonLink ,expandedContent, imageUrl }) => {
 
     const[isExpanded, setIsExpanded] = useState(false);
 
@@ -23,9 +23,13 @@ const Card = ({ title, description, buttonText, expandedContent, imageUrl }) => 
             )}
             <div className="card-footer">
                 {expandedContent && (
-                    <button  variant = "primary" onClick = {toggleExpand} className="card-btn" onClick={toggleExpand}>{isExpanded ? "Show Less" : "Show More"}</button>
+                    <button className="card-btn" onClick={toggleExpand}>{isExpanded ? "Show Less" : "Show More"}</button>
                 )}
-                {buttonText && <button variant = "primary" className="card-btn">{buttonText}</button>}
+                {buttonText && buttonLink && (
+                <a href = {buttonLink} target="_blank" rel = "noopener noreferrer" className="card-btn">
+                    {buttonText}
+                </a>
+                )}
             </div>
         </div>
     );

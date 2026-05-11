@@ -29,14 +29,15 @@ function App() {
     }}>
 
         <Navbar darkMode = {darkMode} setDarkMode = {setDarkMode} themeName={themeName}/>
+
         <Hero name = "Daksh" role = "Web Developer"/>
         <div style = {{display: "flex", justifyContent: "center"}}>
           <CTAButton onClick={() => setShowAbout(prev => !prev)} text = "Toggle About"/> 
         </div>
-
         {showAbout && <About  darkMode = {darkMode} />}
 
         <Projects />
+        
         <Contact />
 
     </div>
