@@ -92,3 +92,31 @@
     border-radius: 999px;
 
 }
+
+@media (max-width: 900px) {
+    .modern-card {
+        padding: 24px;
+    }
+
+    .card-image {
+        height: 240px;
+    }
+}
+
+@media (max-width: 640px) {
+    .modern-card {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .card-image {
+        height: 200px;
+    }
+
+    .card-footer, .card-footer a {
+        flex-wrap: wrap;
+    }
+}

@@ -10,3 +10,14 @@ body{
     width: 100%;
     
 }
+
+img, video, canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}

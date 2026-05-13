@@ -4,7 +4,7 @@ import CTAButton from '../ui/CTAButton';
 
 const Hero = ({ name, role}) => {
   return (
-    <section className="hero-section">
+    <section id="home" className="hero-section">
       <div className="hero-content">
         <h1 className="hero-title">Hello, I'm {name}</h1>
         <h2 className="hero-subtitle">{role}</h2>
@@ -12,7 +12,12 @@ const Hero = ({ name, role}) => {
           I build scalable web applications and explore the latest in front-end development.
         </p>
         <div className="hero-actions">
-          <CTAButton text="View My Work" />
+          <CTAButton
+            text="View My Work"
+            onClick={() => {
+              document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+          />
         </div>
       </div>
     </section>

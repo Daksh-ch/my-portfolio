@@ -39,3 +39,28 @@
     font-size: 0.85rem;
     color: inherit;
 }
+
+@media (max-width: 900px) {
+    .about-section {
+        padding: 10px 20px;
+    }
+
+    .about-title {
+        font-size: 2.1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-section {
+        padding: 10px 16px;
+    }
+
+    .about-subtitle {
+        font-size: 1rem;
+    }
+
+    .about-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+}

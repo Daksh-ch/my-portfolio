@@ -1,15 +1,8 @@
 import React from 'react';
 import './Cards.css';
-import {useState} from 'react';
 import { Star } from 'lucide-react';
 
-const Card = ({ title, description, buttonText, buttonLink ,expandedContent, imageUrl, starCount  }) => {
-
-    const[isExpanded, setIsExpanded] = useState(false);
-
-    const toggleExpand = () => {
-        setIsExpanded(!isExpanded);
-    }
+const Card = ({ title, description, buttonText, buttonLink ,expandedContent, imageUrl, starCount }) => {
     return (
         <div className="modern-card">
             {imageUrl && (
@@ -29,13 +22,10 @@ const Card = ({ title, description, buttonText, buttonLink ,expandedContent, ima
             <div className="card-description">{description}</div>
             
 
-            {isExpanded && expandedContent && (
+            {expandedContent && (
                 <p className="card-expanded">{expandedContent}</p>
             )}
             <div className="card-footer">
-                {expandedContent && (
-                    <button className="card-btn" onClick={toggleExpand}>{isExpanded ? "Show Less" : "Show More"}</button>
-                )}
                 {buttonText && buttonLink && (
                 <a href = {buttonLink} target="_blank" rel = "noopener noreferrer" className="card-btn">
                     {buttonText}

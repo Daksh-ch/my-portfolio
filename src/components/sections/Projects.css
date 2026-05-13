@@ -9,7 +9,7 @@
 .projects-title {
     text-align: center;
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 900;
     margin-bottom: 50px;
 }
 
@@ -17,4 +17,30 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 40px;
+}
+
+@media (max-width: 900px) {
+    .projects-section {
+        padding: 50px 20px;
+    }
+
+    .projects-title {
+        font-size: 2.1rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 28px;
+    }
+}
+
+@media (max-width: 640px) {
+    .projects-section {
+        padding: 40px 16px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
 }
