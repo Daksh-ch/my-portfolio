@@ -1,36 +1,30 @@
-import react from 'react'
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 import "./Contact.css"
 
-const Contact = () => {
+const contactSchema = z.object({
+    name: z.string()
+        .min(2, 'Name must be at least 2 characters.')
+        .regex(/^[A-Za-z ]+$/, 'Name can only contain letters and spaces.'),
+    email: z.string().email('Enter a valid email address.'),
+    message: z.string().min(10, 'Message must be at least 10 characters.')
+})
 
-    const[formData, setFormData] = useState({
-        name: "",
-        email: "",
-        message: ""
+const Contact = () => {
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors, isSubmitting, isValid }
+    } = useForm({
+        resolver: zodResolver(contactSchema),
+        mode: 'onTouched'
     })
 
-    const isFormvalid = !formData.name || !formData.email || !formData.message;
-
-    const handleChange = (e) => {
-        const {name , value} = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name] : value
-        }))
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData);
-
-        console.log("Form submitted!");
-
-        setFormData({
-            name: "",
-            email: "",
-            message: ""
-        })
+    const onSubmit = (data) => {
+        console.log(data)
+        reset()
     }
 
     return(
@@ -39,20 +33,49 @@ const Contact = () => {
             <p className='contact-subtitle'>Get in touch!</p>
 
             <div className="contact-card">
-                <form onSubmit={handleSubmit}  className='contact-form'>
+                <form onSubmit={handleSubmit(onSubmit)} className='contact-form' noValidate>
                     <div className="form-group">
-                        <label >Name</label>
-                        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required/>
+                        <label htmlFor="name">Name</label>
+                        <input
+                            id="name"
+                            type="text"
+                            className={errors.name ? 'input-error' : ''}
+                            {...register('name')}
+                            placeholder="Your name"
+                        />
+                        {errors.name && (
+                            <span className="form-error">{errors.name.message}</span>
+                        )}
                     </div>
                     <div className="form-group">
-                        <label>Email</label>
-                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required/>
+                        <label htmlFor="email">Email</label>
+                        <input
+                            id="email"
+                            type="email"
+                            className={errors.email ? 'input-error' : ''}
+                            {...register('email')}
+                            placeholder="you@example.com"
+                        />
+                        {errors.email && (
+                            <span className="form-error">{errors.email.message}</span>
+                        )}
                     </div>
                     <div className="form-group">
-                        <label>Message</label>
-                        <textarea id="message" name="message" value={formData.message} onChange={handleChange} required/>
+                        <label htmlFor="message">Message</label>
+                        <textarea
+                            id="message"
+                            rows={5}
+                            className={errors.message ? 'input-error' : ''}
+                            {...register('message')}
+                            placeholder="Tell me about your project"
+                        />
+                        {errors.message && (
+                            <span className="form-error">{errors.message.message}</span>
+                        )}
                     </div>
-                    <button type="submit" className='submit-btn' disabled={isFormvalid}>Send</button>
+                    <button type="submit" className='submit-btn' disabled={!isValid || isSubmitting}>
+                        {isSubmitting ? 'Sending...' : 'Send'}
+                    </button>
                 </form> 
             </div>
         </section>

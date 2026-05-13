@@ -102,3 +102,13 @@
     cursor: not-allowed;
     background-color: transparent; /* prevent hover effects */
 }
+
+.input-error {
+    border-color: #ef4444;
+}
+
+.form-error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    line-height: 1.2;
+}
