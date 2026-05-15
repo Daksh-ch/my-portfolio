@@ -1,6 +1,7 @@
 import React from 'react'
 import CTAButton from '../ui/CTAButton'
 import Container from '../ui/Container'
+import heroImg from '../../assets/hero.jpg'
 
 const Hero = ({ name, role }) => {
   const stack = ['React', 'Node', 'MongoDB', 'Tailwind', 'Zod']
@@ -57,7 +58,7 @@ const Hero = ({ name, role }) => {
           <div className="grid gap-4">
             <div className="h-[320px] overflow-hidden rounded-3xl border border-zinc-500/20 bg-zinc-500/5 sm:h-[360px] lg:h-[380px]">
               <img
-                src="src/assets/hero.jpg"
+                src={heroImg}
                 alt="Portrait of Daksh"
                 className="h-full w-full object-cover"
               />
