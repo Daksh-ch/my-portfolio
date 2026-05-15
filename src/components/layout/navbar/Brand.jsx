@@ -1,12 +1,13 @@
 import React from 'react'
 
-const Brand = ({heroImg}) => {
+const Brand = () => {
   return (
-    <div className="navbar-left">
-      <img src={heroImg} alt="Profile" className="navbar-avatar" />
-      <h2>Daksh Chaudhary</h2>
+    <div className="flex items-center gap-2">
+      <h2 className="text-3xl font-semibold tracking-tight sm:text-base">
+        Daksh Chaudhary
+      </h2>
     </div>
-  );
-};
+  )
+}
 
 export default Brand

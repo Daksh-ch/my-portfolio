@@ -1,9 +1,7 @@
 
 
 .projects-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 60px 0;
 }
 
 .projects-title {
@@ -21,7 +19,7 @@
 
 @media (max-width: 900px) {
     .projects-section {
-        padding: 50px 20px;
+        padding: 50px 0;
     }
 
     .projects-title {
@@ -36,7 +34,7 @@
 
 @media (max-width: 640px) {
     .projects-section {
-        padding: 40px 16px;
+        padding: 40px 0;
     }
 
     .projects-grid {

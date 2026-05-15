@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import Card from '../ui/Cards';
 import './Projects.css';
+import Container from '../ui/Container';
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
@@ -38,30 +39,32 @@ const Projects = () => {
      
     return (
     <section className="projects-section" id="projects">
-        <h2 className="projects-title">My Projects</h2>
+        <Container>
+            <h2 className="projects-title">My Projects</h2>
 
-        {loading && <p>Loading projects...</p>}
-        {error && <p>{error}</p>}
+            {loading && <p>Loading projects...</p>}
+            {error && <p>{error}</p>}
 
-        {!loading && !error && projects.length === 0 && (
-            <p className='projects-empty'>No projects found. </p>
-        )}
+            {!loading && !error && projects.length === 0 && (
+                <p className='projects-empty'>No projects found. </p>
+            )}
 
-        {!loading && !error &&(
-            <div className="projects-grid">
-            {projects.map(project => (
-                <Card
-                key={project.id}
-                title={project.name}
-                description={project.description || "No description provided"}
-                buttonText="View Repo"
-                buttonLink={project.html_url}
-                starCount={project.stargazers_count}
-                imageUrl={`/projects/${project.name}.webp`}
-                />
-            ))}
-            </div>
-        )}
+            {!loading && !error &&(
+                <div className="projects-grid">
+                {projects.map(project => (
+                    <Card
+                    key={project.id}
+                    title={project.name}
+                    description={project.description || "No description provided"}
+                    buttonText="View Repo"
+                    buttonLink={project.html_url}
+                    starCount={project.stargazers_count}
+                    imageUrl={`/projects/${project.name}.webp`}
+                    />
+                ))}
+                </div>
+            )}
+        </Container>
     </section>
     );
 }
