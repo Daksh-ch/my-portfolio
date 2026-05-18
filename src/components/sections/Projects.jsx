@@ -72,7 +72,7 @@ const Projects = () => {
                             <img
                                 src={`/projects/${project.name}.webp`}
                                 alt={project.name}
-                                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                                 loading="lazy"
                             />
                         </div>
