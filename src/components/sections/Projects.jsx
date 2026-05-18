@@ -68,7 +68,7 @@ const Projects = () => {
                         key={project.id}
                         className="group overflow-hidden rounded-3xl border border-zinc-500/20 bg-zinc-500/5"
                     >
-                        <div className="aspect-[16/10] w-full overflow-hidden bg-zinc-500/10">
+                        <div className="aspect-16/10 w-full overflow-hidden bg-zinc-500/10">
                             <img
                                 src={`/projects/${project.name}.webp`}
                                 alt={project.name}

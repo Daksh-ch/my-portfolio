@@ -1,10 +1,9 @@
-import React from 'react'
+
 import CTAButton from '../ui/CTAButton'
 import Container from '../ui/Container'
 import heroImg from '../../assets/hero.jpg'
 
 const Hero = ({ name, role }) => {
-  const stack = ['React', 'Node', 'MongoDB', 'Tailwind', 'Zod']
 
   return (
     <section id="home" className="py-10 sm:py-10 lg:py-14">
@@ -56,7 +55,8 @@ const Hero = ({ name, role }) => {
           </div>
 
           <div className="grid gap-4">
-            <div className="h-[320px] overflow-hidden rounded-3xl border border-zinc-500/20 bg-zinc-500/5 sm:h-[360px] lg:h-[380px]">
+            <div className="h-80 overflow-hidden rounded-3xl border border-zinc-500/20 bg-zinc-500/5 sm:h-90
+             lg:h-95">
               <img
                 src={heroImg}
                 alt="Portrait of Daksh"

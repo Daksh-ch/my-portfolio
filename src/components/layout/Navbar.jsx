@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Brand from './navbar/Brand'
 import Navlinks from './navbar/Navlinks'
 import CTAButton from '../ui/CTAButton'
@@ -27,10 +27,10 @@ const Navbar = ({ darkMode, setDarkMode, themeName }) => {
           <Navlinks
             isOpen={isMenuOpen}
             onNavigate={handleNavigate}
-            className="order-3 col-span-2 justify-center sm:order-none sm:col-auto"
+            className="order-3 col-span-2 justify-center sm:order-0 sm:col-auto"
           />
 
-          <div className="order-2 flex items-center justify-end gap-2 sm:order-none sm:gap-3">
+          <div className="order-2 flex items-center justify-end gap-2 sm:order-0 sm:gap-3">
             <CTAButton
               text="Message Daksh"
               className="hidden sm:inline-flex"
