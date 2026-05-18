@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ScrollHandler from './components/layout/ScrollHandler';
+
 import Navbar from './components/layout/Navbar'
-import Hero from './components/sections/Hero'
-import About from './components/sections/About'
+import Home from './pages/Home';
+import Blogs from './pages/Blogs';
+
 import Lenis from 'lenis'
-import Projects from './components/sections/Projects'
-import Contact from './components/sections/Contact'
 
 function App() {
   const lenis = new Lenis({
@@ -26,16 +28,16 @@ function App() {
       data-theme={darkMode ? "dark" : "light"}
       className='group'
     >
+      <BrowserRouter>
 
-        <Navbar darkMode = {darkMode} setDarkMode = {setDarkMode} themeName={themeName}/>
-
-        <Hero name = "Daksh" role = "Full Stack Developer"/>
-        <About  darkMode = {darkMode} />
-
-        <Projects />
+        <ScrollHandler />
         
-        <Contact />
-
+        <Navbar darkMode = {darkMode} setDarkMode = {setDarkMode} themeName={themeName}/>
+        <Routes>
+          <Route path="/" element={<Home darkMode={darkMode} />} />
+          <Route path="/blogs" element={<Blogs />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

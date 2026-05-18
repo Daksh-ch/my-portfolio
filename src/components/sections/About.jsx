@@ -66,7 +66,7 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className="rounded-3xl border border-amber-400/60 bg-amber-400/85 p-6 md:col-span-2">
+                    <div className="rounded-3xl border border-amber-400/60 bg-gradient-to-r from-amber-500 to-amber-400 p-6 md:col-span-2">
                         <p className="text-xs font-semibold uppercase tracking-[0.22em] opacity-70">
                             Highlight
                         </p>

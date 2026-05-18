@@ -1,13 +1,8 @@
-import React from 'react'
+
+import { Link } from 'react-router-dom'
 import { cn } from '../../../lib/utils'
 
 const Navlinks = ({ isOpen, onNavigate, className }) => {
-  const handleNav = (event, targetId) => {
-    event.preventDefault()
-    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
-    onNavigate?.()
-  }
-
   return (
     <ul
       className={cn(
@@ -17,40 +12,40 @@ const Navlinks = ({ isOpen, onNavigate, className }) => {
       )}
     >
       <li>
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="text-current opacity-80 transition-opacity hover:opacity-100"
-          onClick={(event) => handleNav(event, 'home')}
+          onClick={onNavigate}
         >
           Home
-        </a>
+        </Link>
       </li>
       <li>
-        <a
-          href="#projects"
+        <Link
+          to="/#projects"
           className="text-current opacity-80 transition-opacity hover:opacity-100"
-          onClick={(event) => handleNav(event, 'projects')}
+          onClick={onNavigate}
         >
           Projects
-        </a>
+        </Link>
       </li>
       <li>
-        <a
-          href="#about"
+        <Link
+          to="/#about"
           className="text-current opacity-80 transition-opacity hover:opacity-100"
-          onClick={(event) => handleNav(event, 'about')}
+          onClick={onNavigate}
         >
           About
-        </a>
+        </Link>
       </li>
       <li>
-        <a
-          href="#contact"
+        <Link
+          to="/blogs"
           className="text-current opacity-80 transition-opacity hover:opacity-100"
-          onClick={(event) => handleNav(event, 'contact')}
+          onClick={onNavigate}
         >
-          Contact
-        </a>
+          Blogs
+        </Link>
       </li>
     </ul>
   )
