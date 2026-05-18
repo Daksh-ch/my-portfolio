@@ -103,7 +103,7 @@ const Contact = () => {
                     </div>
 
                     <div className="rounded-3xl border border-zinc-500/20 bg-zinc-500/5 p-6 sm:p-8">
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate data-netlify="true">
                         <div className="form-group">
                             <label htmlFor="name" className="text-xs font-semibold uppercase tracking-[0.18em] opacity-60">
                                 Name
