@@ -24,6 +24,7 @@ function App() {
   return (
     <div
       data-theme={darkMode ? "dark" : "light"}
+      className='group'
     >
 
         <Navbar darkMode = {darkMode} setDarkMode = {setDarkMode} themeName={themeName}/>

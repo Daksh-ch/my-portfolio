@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import emailjs from '@emailjs/browser'
-import "./Contact.css"
 import Container from '../ui/Container'
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024 
@@ -79,49 +78,72 @@ const Contact = () => {
 
     const wordCount = messageValue.trim().split(/\s+/).filter(Boolean).length
 
-    return(
-        <section id="contact" className='contact-section'>
-            <Container>
-                <h2 className='contact-title'>Contact</h2>
-                <p className='contact-subtitle'>Get in touch!</p>
+    const inputBase =
+        'w-full rounded-2xl border bg-transparent px-4 py-3 text-sm outline-none transition focus:ring-2 focus:ring-zinc-500/20'
+    const textBase =
+        'w-full rounded-2xl border bg-transparent px-4 py-3 text-sm outline-none transition focus:ring-2 focus:ring-zinc-500/20'
+    const fileBase =
+        'w-full rounded-2xl border border-dashed bg-transparent px-4 py-3 text-sm transition file:mr-4 file:rounded-lg file:border file:border-zinc-500/30 file:bg-transparent file:px-3 file:py-1.5 file:text-xs file:font-semibold file:uppercase file:tracking-[0.12em]'
 
-                <div className="contact-card">
-                    <form onSubmit={handleSubmit(onSubmit)} className='contact-form' noValidate>
+    return(
+        <section id="contact" className="py-16 sm:py-20">
+            <Container>
+                <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+                    <div className="space-y-4 lg:pt-33">
+                        <p className="text-xs font-semibold uppercase tracking-[0.28em] opacity-60">
+                            Contact
+                        </p>
+                        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                            Let's connect and build something meaningful.
+                        </h2>
+                        <p className="max-w-md text-sm leading-relaxed opacity-70 sm:text-base">
+                            Reach out for work opportunities, collaborations, or project
+                            inquiries. I will get back with clear next steps.
+                        </p>
+                    </div>
+
+                    <div className="rounded-3xl border border-zinc-500/20 bg-zinc-500/5 p-6 sm:p-8">
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
                         <div className="form-group">
-                            <label htmlFor="name">Name</label>
+                            <label htmlFor="name" className="text-xs font-semibold uppercase tracking-[0.18em] opacity-60">
+                                Name
+                            </label>
                             <input
                                 id="name"
                                 type="text"
-                                className={errors.name ? 'input-error' : ''}
+                                className={`${inputBase} ${errors.name ? 'border-red-500' : 'border-zinc-500/30'}`}
                                 {...register('name')}
                                 placeholder="Your name"
                             />
                             {errors.name && (
-                                <span className="form-error">{errors.name.message}</span>
+                                <span className="text-xs text-red-500">{errors.name.message}</span>
                             )}
                         </div>
                         <div className="form-group">
-                            <label>Email</label>
+                            <label className="text-xs font-semibold uppercase tracking-[0.18em] opacity-60">Email</label>
                             <input
                                 id="email"
                                 type="email"
-                                className={errors.email ? 'input-error' : ''}
+                                className={`${inputBase} ${errors.email ? 'border-red-500' : 'border-zinc-500/30'}`}
                                 {...register('email')}
                                 placeholder="you@example.com"
                             />
                             {errors.email && (
-                                <span className="form-error">{errors.email.message}</span>
+                                <span className="text-xs text-red-500">{errors.email.message}</span>
                             )}
                         </div>
                         <div className="form-group">
-                            <label>Where did you hear about me?</label>
-                            <div className="sources-options">
+                            <label className="text-xs font-semibold uppercase tracking-[0.18em] opacity-60">
+                                Where did you hear about me?
+                            </label>
+                            <div className="flex flex-wrap gap-3">
                                 {sourcesOptions.map((option) => (
-                                    <div key={option.id} className="source-option">
+                                    <div key={option.id} className="flex items-center gap-2 rounded-full border border-zinc-500/20 px-3 py-1.5 text-xs font-semibold">
                                         <input
                                             id={option.id}
                                             type="checkbox"
                                             value={option.id}
+                                            className="h-4 w-4 accent-current"
                                             {...register('sources')}
                                         />
                                         <label htmlFor={option.id}>{option.label}</label>
@@ -130,43 +152,55 @@ const Contact = () => {
                             </div>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="message">Message</label>
+                            <label htmlFor="message" className="text-xs font-semibold uppercase tracking-[0.18em] opacity-60">
+                                Message
+                            </label>
                             <textarea
                                 id="message"
                                 rows={5}
-                                className={errors.message ? 'input-error' : ''}
+                                className={`${textBase} ${errors.message ? 'border-red-500' : 'border-zinc-500/30'}`}
                                 {...register('message')}
-                                placeholder="Tell me about your project"
+                                placeholder="Your message"
                             />
-                            <div className='form-footer'>
-                                <span className="form-error">{errors.message?.message}</span>
-                                <span className="word-count" style={{ color: wordCount > 200 ? '#ef4444' : 'rgba(128, 128, 128, 0.6)' }}>
+                            <div className="flex flex-col gap-2 text-xs sm:flex-row sm:items-center sm:justify-between">
+                                <span className="text-xs text-red-500">{errors.message?.message}</span>
+                                <span
+                                    className="text-xs"
+                                    style={{ color: wordCount > 200 ? '#ef4444' : 'rgba(128, 128, 128, 0.6)' }}
+                                >
                                     {wordCount}/200 words
                                 </span>
                             </div>
 
-                            <label htmlFor="attachment">Attachment (Optional)</label>
+                            <label htmlFor="attachment" className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] opacity-60">
+                                Attachment (Optional)
+                            </label>
                             <div>
                                 <input
                                     id="attachment"
                                     type="file"
                                     accept="image/*,.pdf"
-                                    className={errors.attachment ? 'input-error' : ''}
+                                    className={`${fileBase} ${errors.attachment ? 'border-red-500' : 'border-zinc-500/30'}`}
                                     {...register('attachment')}
                                 />
-                                <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>
+                                <span className="mt-2 block text-xs opacity-60">
                                     Max size: 5MB. Accepts: Images & PDFs.
                                 </span>
                                 {errors.attachment && (
-                                    <span className="form-error">{errors.attachment.message}</span>
+                                    <span className="text-xs text-red-500">{errors.attachment.message}</span>
                                 )}
                             </div>
                             
                         </div>
-                        <button type="submit" className='submit-btn' disabled={!isValid || isSubmitting}>
+                        <button
+                            type="submit"
+                            className="inline-flex w-full items-center justify-center rounded-full border border-zinc-500/30  px-6 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 group-data-[theme=dark]:bg-white group-data-[theme=dark]:text-black group-data-[theme=light]:bg-black group-data-[theme=light]:text-white hover:bg-zinc-500/90 hover:cursor-pointer"
+                            disabled={!isValid || isSubmitting}
+                        >
                             {isSubmitting ? 'Sending...' : 'Send'}
                         </button>
                     </form> 
+                    </div>
                 </div>
             </Container>
         </section>
