@@ -6,8 +6,14 @@ import ThemeToggle from '../ui/ThemeToggle'
 import Container from '../ui/Container'
 import { Menu } from 'lucide-react'
 import { cn } from '../../lib/utils'
+import { useContext } from 'react'
+import { ThemeContext } from '../../context/ThemeContext'
 
-const Navbar = ({ darkMode, setDarkMode, themeName }) => {
+const Navbar = () => {
+
+  const {darkMode, setDarkMode, themeName} = useContext(ThemeContext)
+
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleNavigate = () => {
