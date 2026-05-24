@@ -58,7 +58,8 @@ const Hero = ({ name, role }) => {
           </div>
 
           <div className="grid gap-4">
-            <div className="h-80 overflow-hidden rounded-3xl border border-zinc-500/20 bg-zinc-500/5 sm:h-90
+            <div 
+            className="h-80 overflow-hidden rounded-3xl border border-zinc-500/20 bg-zinc-500/5 sm:h-90
              lg:h-95">
               <img
                 src={heroImg}

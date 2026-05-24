@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import emailjs from '@emailjs/browser'
 import Container from '../ui/Container'
+import { gsap } from 'gsap'
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024 
 const ACCEPTED_FILE_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
@@ -89,7 +90,10 @@ const Contact = () => {
         <section id="contact" className="py-16 sm:py-20">
             <Container>
                 <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
-                    <div className="space-y-4 lg:pt-33">
+                    <div 
+                    onMouseEnter={() => gsap.to('#cursor', {scale: 4, duration: 0.1})} 
+                    onMouseLeave={() => gsap.to('#cursor', {scale: 1, duration: 0.2})}
+                    className="space-y-4 lg:pt-33">
                         <p className="text-xs font-semibold uppercase tracking-[0.28em] opacity-60">
                             Contact
                         </p>

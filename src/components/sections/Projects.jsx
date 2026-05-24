@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import Container from '../ui/Container'
+import { gsap } from 'gsap'
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
@@ -68,7 +69,10 @@ const Projects = () => {
                         key={project.id}
                         className="group overflow-hidden rounded-3xl border border-zinc-500/20 bg-zinc-500/5"
                     >
-                        <div className="aspect-16/10 w-full overflow-hidden bg-zinc-500/10">
+                        <div 
+                        onMouseEnter={() => gsap.to('#cursor', {scale: 5, duration: 0.2})} 
+                        onMouseLeave={() => gsap.to('#cursor', {scale: 1, duration: 0.2})}
+                        className="aspect-16/10 w-full overflow-hidden bg-zinc-500/10">
                             <img
                                 src={`/projects/${project.name}.webp`}
                                 alt={project.name}
