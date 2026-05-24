@@ -8,6 +8,7 @@ import Blogs from './pages/Blogs';
 
 import Lenis from 'lenis'
 import { ThemeContext } from './context/ThemeContext';
+import { Cursor } from './components/ui/Cursor';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
     >
       <BrowserRouter>
         <ScrollHandler />
+        <Cursor />
 
         <Navbar />  
         <Routes>

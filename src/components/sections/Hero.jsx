@@ -2,6 +2,7 @@
 import CTAButton from '../ui/CTAButton'
 import Container from '../ui/Container'
 import heroImg from '../../assets/hero.jpg'
+import { gsap } from 'gsap'
 
 const Hero = ({ name, role }) => {
 
@@ -18,10 +19,12 @@ const Hero = ({ name, role }) => {
               <p className="text-xs font-semibold uppercase tracking-[0.28em] opacity-60">
                 {role}
               </p>
-              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 onMouseEnter={() => gsap.to('#cursor', {scale: 5, duration: 0.3})}
+                  onMouseLeave={() => gsap.to('#cursor', {scale: 1, duration: 0.3})}  
+              className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
                 Hi, I'm <span className="font-mono text-transparent bg-clip-text bg-linear-to-br from-orange-600 to-amber-400">{name}</span>. I build calm, reliable full-stack products.
               </h1>
-              <p className="max-w-xl text-base leading-relaxed opacity-75 sm:text-lg">
+              <p className="max-w-xl text-base leading-relaxed opacity-75 sm:text-lg ">
                 I design minimal interfaces and engineer scalable APIs that feel fast, stable, and intentional.
               </p>
             </div>
