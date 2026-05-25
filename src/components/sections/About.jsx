@@ -11,6 +11,7 @@ import {
     GitBranch,
     Layers
 } from 'lucide-react'
+import { gsap } from 'gsap'
 
 const skills = [
     { label: 'React', Icon: Code2 },
@@ -106,7 +107,10 @@ const About = () => {
                         <p className="text-xs font-semibold uppercase tracking-[0.22em] opacity-60">
                             Toolkit
                         </p>
-                        <div className="mt-4 flex flex-wrap gap-2">
+                        <div 
+                        onMouseEnter={() => gsap.to('#cursor', {scale: 2, duration: 0.2})} 
+                        onMouseLeave={() => gsap.to('#cursor', {scale: 1, duration: 0.2})}
+                        className="mt-4 flex flex-wrap gap-2">
                             {skills.map(({ label, Icon }) => (
                                 <span
                                     key={label}

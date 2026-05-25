@@ -10,7 +10,7 @@ export const ThemeProvider = ({children}) => {
 
         return saved ? saved === "dark" :  true;
      })
-    const themeName = darkMode ? "light" : "dark";
+    const themeName = darkMode ? "Dark" : "Light";
 
     useEffect(() => {
     localStorage.setItem("theme", darkMode ? "dark" : "light");
