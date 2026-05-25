@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import emailjs from '@emailjs/browser'
 import Container from '../ui/Container'
+import { useMemo } from 'react'
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024 
 const ACCEPTED_FILE_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf']
@@ -75,8 +76,10 @@ const Contact = () => {
     }
 
     const messageValue = watch('message', '')
+    const wordCount = useMemo(() => {
+        return messageValue.trim().split(/\s+/).filter(Boolean).length
 
-    const wordCount = messageValue.trim().split(/\s+/).filter(Boolean).length
+    }, [messageValue]);
 
     const inputBase =
         'w-full rounded-2xl border bg-transparent px-4 py-3 text-sm outline-none transition focus:ring-2 focus:ring-zinc-500/20'

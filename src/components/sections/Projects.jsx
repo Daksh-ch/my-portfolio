@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import Container from '../ui/Container'
 
@@ -7,8 +7,12 @@ const Projects = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const hasFetched  = useRef(false);
+
     useEffect(() => {
+        if((hasFetched.current)) return;
         const fetchProjects = async () => {
+            hasFetched.current = true;
             try{
                 setLoading(true);
                 setError(null);
