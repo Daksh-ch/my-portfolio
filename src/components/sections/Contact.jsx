@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import emailjs from '@emailjs/browser'
 import Container from '../ui/Container'
 import { useMemo } from 'react'
 import { gsap } from 'gsap'
@@ -59,21 +58,46 @@ const Contact = () => {
     })
 
     const onSubmit = async (data, e) => {
-        try {
-            const result = await emailjs.sendForm(
-                'service_82h8ey4',
-                'template_t38oe9z',
-                e.target,
-                'oMk9N_E5mIh_Zf6Df'
-            )
-            console.log('Email sent successfully:', result.text)
-            alert('Message sent successfully!')
+
+        const formData = new FormData(e.target)
+        formData.append("form-name", "contact")
+
+        try{
+            const response = await fetch("/", {
+                method: "POST",
+                body: formData
+            })
+
+            if(response.ok){
+                console.log("Form submitted successfully")
+                alert("Message sent successfully!")
+                reset()
+            }
+            else{
+                throw new Error("Network response was not ok")
+            }
+        } catch (error){
+            console.error("Error submitting form:", error)
+            alert("Failed to send message. Please try again.")
             reset()
         }
-        catch (error) {
-            console.error('Error sending email:', error.text || error)
-            alert('Failed to send message. Please try again.')
-        }
+        // try {
+        //     const result = await emailjs.sendForm(
+        //         'service_82h8ey4',
+        //         'template_t38oe9z',
+        //         e.target,
+        //         'oMk9N_E5mIh_Zf6Df'
+        //     )
+        //     console.log('Email sent successfully:', result.text)
+        //     alert('Message sent successfully!')
+        //     reset()
+        // }
+        // catch (error) {
+        //     console.error('Error sending email:', error.text || error)
+        //     alert('Failed to send message. Please try again.')
+        // }
+
+
     }
 
     const messageValue = watch('message', '')
@@ -110,7 +134,7 @@ const Contact = () => {
                     </div>
 
                     <div className="rounded-3xl border border-zinc-500/20 bg-zinc-500/5 p-6 sm:p-8">
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate data-netlify="true">
+                    <form name= "contact" onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate data-netlify="true">
                         <div className="form-group">
                             <label htmlFor="name" className="text-xs font-semibold uppercase tracking-[0.18em] opacity-60">
                                 Name

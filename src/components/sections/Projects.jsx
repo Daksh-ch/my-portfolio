@@ -6,42 +6,6 @@ import {useDispatch, useSelector} from 'react-redux'
 import { fetchProjects } from '../../store/projectSlice.jsx'
 
 const Projects = () => {
-    // const [projects, setProjects] = useState([]);
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(null);
-
-    // const hasFetched  = useRef(false);
-
-    // useEffect(() => {
-    //     if((hasFetched.current)) return;
-    //     const fetchProjects = async () => {
-    //         hasFetched.current = true;
-    //         try{
-    //             setLoading(true);
-    //             setError(null);
-
-    //             const response =  await fetch('https://api.github.com/users/octocat/repos');
-
-    //             if(!response.ok){
-    //                 throw new Error('Network response was not ok');
-    //             }
-
-    //             const data = await response.json();
-    //             const filtered = data.filter(repo => !repo.fork).slice(0,4);
-
-    //             setProjects(filtered);
-
-    //             }
-    //         catch(err){
-    //             setError("Failed to fetch projects. Please try again later.");
-    //         }
-    //         finally{
-    //             setLoading(false);
-    //         }
-    //     }
-
-    //     fetchProjects();
-    // }, []);
 
     const dispatch = useDispatch();
 
