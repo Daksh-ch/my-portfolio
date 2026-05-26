@@ -30,7 +30,7 @@ function App() {
 
         <Navbar />  
         <Routes>
-          <Route path="/" element={<Home darkMode={darkMode} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<Blogs />} />
         </Routes>
 

@@ -3,12 +3,11 @@ import About from '../components/sections/About'
 import Projects from '../components/sections/Projects'
 import Contact from '../components/sections/Contact'
 
-// We pass darkMode as a prop because Home needs to pass it down to About
-export default function Home({ darkMode }) {
+export default function Home() {
   return (
     <main>
       <Hero name="Daksh" role="Full Stack Developer" />
-      <About darkMode={darkMode} />
+      <About />
       <Projects />
       <Contact />
     </main>
